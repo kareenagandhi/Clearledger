@@ -69,24 +69,90 @@
       "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
     }
   ],
+  "file_handlers": [
+    {
+      "action": "/?import=csv",
+      "accept": {
+        "text/csv": [".csv"]
+      }
+    },
+    {
+      "action": "/?import=json",
+      "accept": {
+        "application/json": [".json"]
+      }
+    },
+    {
+      "action": "/?import=ofx",
+      "accept": {
+        "application/x-ofx": [".ofx", ".qfx"]
+      }
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+clearledger",
+      "url": "/?protocol=%s"
+    },
+    {
+      "protocol": "web+finance",
+      "url": "/?protocol=%s"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://clearledger.vercel.app/manifest.json"
+    }
+  ],
+  "prefer_related_applications": false,
+  "iarc_rating_id": "",
+  "widgets": [
+    {
+      "name": "ClearLedger Balance",
+      "description": "Quick view of your monthly income, spending, and savings",
+      "tag": "clearledger-balance",
+      "template": "clearledger-balance-template",
+      "ms_ac_template": "widgets/balance-template.json",
+      "data": "widgets/balance-data.json",
+      "type": "application/json",
+      "screenshots": [
+        {
+          "src": "screenshot-mobile.png",
+          "sizes": "412x915",
+          "label": "Balance widget showing monthly summary"
+        }
+      ],
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ],
+      "auth": false,
+      "update": 3600
+    }
+  ],
+  "scope_extensions": [
+    {
+      "origin": "https://*.clearledger.vercel.app"
+    }
+  ],
   "launch_handler": {
     "client_mode": "navigate-existing"
   },
-  "edge_side_panel": {
-    "preferred_width": 400
-  },
-  "prefer_related_applications": false,
-  "related_applications": [],
-  "protocol_handlers": [],
-  "file_handlers": [],
   "share_target": {
     "action": "/?shared=true",
     "method": "GET",
     "params": {
-      "text": "description"
+      "title": "name",
+      "text": "description",
+      "url": "link"
     }
   },
-  "scope_extensions": [],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
   "note_taking": {
     "new_note_url": "/?action=add-transaction"
   }
