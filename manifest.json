@@ -2,12 +2,14 @@
   "name": "ClearLedger — Personal Finance",
   "short_name": "ClearLedger",
   "description": "Track income, expenses, budgets, bills and investments in one place. AI-powered insights to help you save more.",
+  "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#0d0b14",
-  "theme_color": "#7c3aed",
+  "display_override": ["standalone", "minimal-ui"],
   "orientation": "portrait",
+  "theme_color": "#7c3aed",
+  "background_color": "#0d0b14",
   "lang": "en",
   "dir": "ltr",
   "categories": ["finance", "productivity"],
@@ -37,7 +39,22 @@
       "purpose": "maskable"
     }
   ],
-  "screenshots": [],
+  "screenshots": [
+    {
+      "src": "screenshot-mobile.png",
+      "sizes": "412x915",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "ClearLedger Dashboard — Mobile View"
+    },
+    {
+      "src": "screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "ClearLedger Dashboard — Desktop View"
+    }
+  ],
   "shortcuts": [
     {
       "name": "Add Transaction",
@@ -51,5 +68,26 @@
       "url": "/",
       "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
     }
-  ]
+  ],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "protocol_handlers": [],
+  "file_handlers": [],
+  "share_target": {
+    "action": "/?shared=true",
+    "method": "GET",
+    "params": {
+      "text": "description"
+    }
+  },
+  "scope_extensions": [],
+  "note_taking": {
+    "new_note_url": "/?action=add-transaction"
+  }
 }
